@@ -77,6 +77,7 @@ const routes: Routes = [
   {path:'forgot-password', component: ForgotPasswordComponent},
   {path: 'unauthorized',component:UnauthorizedComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
