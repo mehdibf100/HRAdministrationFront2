@@ -6,11 +6,11 @@ import { jwtDecode } from 'jwt-decode';
 
 interface JwtPayload {
     role: { authority: string }[];
-    sub: string;  
-    iat: number;  
-    exp: number;  
+    sub: string;
+    iat: number;
+    exp: number;
   }
-  
+
 @Injectable({
   providedIn: 'root'
 })

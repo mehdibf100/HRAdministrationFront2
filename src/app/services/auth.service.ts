@@ -1,7 +1,11 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { JwtPayload } from 'jwt-decode';
+import { url } from 'inspector';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +13,7 @@ import { catchError } from 'rxjs/operators';
 export class AuthService {
   private baseUrl = 'http://localhost:8081/api/auth';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private router:Router) {}
 
   login(email: string, password: string): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/signin`, { email, password })
@@ -40,4 +44,29 @@ export class AuthService {
     }
     return throwError(() => new Error(errorMsg));
   }
+  isLogin() {
+    const token = sessionStorage.getItem('token');
+    const role=sessionStorage.getItem('role');
+    if (!token || token.length === 0) {
+        this.router.navigate(['/login']);
+        return false;
+    } else {
+      switch (role) {
+        case 'ROLE_ADMIN':
+          this.router.navigate(['/admin-dashboard']);
+          break;
+        case 'ROLE_ADMINHR':
+          this.router.navigate(['/admin-hr-dashboard']);
+          break;
+        case 'ROLE_EMPLOYEE':
+          this.router.navigate(['/employee-dashboard']);
+          break;
+    }
+    return true;
+  }
 }
+GetuserLogin(){
+  return this.http.get(this.baseUrl+"/user/authenticiated")
+}
+}
+

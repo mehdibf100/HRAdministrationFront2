@@ -1,10 +1,9 @@
-// Angular Import
+import { ProfileEmployeeComponent } from './profile-employee/profile-employee.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// project import
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminComponent } from './theme/layout/admin/admin.component';
@@ -23,9 +22,12 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
-import { HttpClientModule } from '@angular/common/http';
 import { ProjectsComponent } from './projects/projects.component';
-
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { DashboardClientComponent } from './dashboard-client/dashboard-client.component';
+import { BodyEmployeeDashbordComponent } from './body-employee-dashbord/body-employee-dashbord.component';
+import { RouterModule } from '@angular/router';
+import { HttpRequestInterceptor } from './helpers/http.interceptor';
 
 @NgModule({
   declarations: [
@@ -46,10 +48,12 @@ import { ProjectsComponent } from './projects/projects.component';
     UnauthorizedComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    DashboardClientComponent,
+
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, BrowserAnimationsModule,
-    HttpClientModule,],
-  providers: [],
+    HttpClientModule, ProfileEmployeeComponent,BodyEmployeeDashbordComponent,RouterModule],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass:HttpRequestInterceptor , multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

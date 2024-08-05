@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage.service';
 import { NgForm } from '@angular/forms';
@@ -17,7 +17,7 @@ interface JwtPayload {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   user = {
     email: '',
     password: ''
@@ -31,7 +31,9 @@ export class LoginComponent {
     private storageService: StorageService,
     private router: Router
   ) {}
-
+  ngOnInit(): void {
+   this.authService.isLogin()
+  }
   togglePassword() {
     const passwordInput = document.querySelector('.password-wrapper input') as HTMLInputElement;
     const passwordToggleIcon = document.querySelector('.password-toggle') as HTMLElement;
@@ -48,19 +50,20 @@ export class LoginComponent {
   }
 
   onSubmit(loginForm: NgForm): void {
-    if (loginForm.valid) {
+    if (!loginForm.valid) {
       const { email, password } = this.user;
 
       this.authService.login(email, password).subscribe({
         next: data => {
           this.storageService.saveUser(data);
-
           const token = data.token;
+          sessionStorage.setItem('token',token)
           if (token) {
             try {
               const decodedToken: JwtPayload = jwtDecode(token);
               if (decodedToken.role && decodedToken.role.length > 0) {
                 this.role = decodedToken.role[0].authority;
+                sessionStorage.setItem('role',this.role);
               }
               console.log('Role from token:', this.role);
             } catch (error) {
