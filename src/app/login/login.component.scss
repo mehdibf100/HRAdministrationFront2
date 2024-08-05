@@ -15,6 +15,7 @@
   box-shadow: 2px 2px 2px 2px #d1d1d1;
   border: 1px gainsboro;
   border-radius: 5px;
+  margin-top: 5px;
 }
 
 .form {
@@ -41,7 +42,7 @@ span {
 
 .img-log {
   display: block;
-  margin-left: 70px;
+  margin-left: 60px;
   margin-right: auto;
   width: 40%;
 }
@@ -63,7 +64,7 @@ span {
   width: 230px;
   height: 35px;
   border-radius: 30px;
-  background-color: #69dbff;
+  background-color: orange;
   border: none;
   margin: 0;
   text-align: center;
@@ -208,4 +209,12 @@ input.ng-invalid.ng-touched {
 
 .password-wrapper input:focus {
   border: 0.5px solid #ff9100f8;
+}
+.image{
+  visibility: hidden;
+}
+@media only screen and (min-width: 1500px) {
+  .image{
+visibility:visible;
+}
 }

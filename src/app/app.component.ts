@@ -1,6 +1,7 @@
 // Angular Import
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,7 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  // constructor
   constructor(private router: Router) {}
-
-  // life cycle event
   ngOnInit() {
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
@@ -20,4 +18,5 @@ export class AppComponent implements OnInit {
       window.scrollTo(0, 0);
     });
   }
+
 }

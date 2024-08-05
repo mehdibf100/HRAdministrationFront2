@@ -1,0 +1,70 @@
+.container
+{
+  display: flex;
+  justify-content: center;
+
+}
+.profile{
+  width: 700px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 8px;
+  margin-top: 50px;
+  box-shadow: 2px 2px 2px 2px #d1d1d1;
+  border: none;
+}
+.icon-setting
+{
+  float: right;
+}
+hr{
+  margin:7px 0 0 0;
+}
+.data-profile{
+  display: flex;
+  flex-wrap: wrap;
+}
+.data-user{
+  //margin-top:60px ;
+  margin-left: 50px;
+  display: block;
+}
+.fullName
+{
+margin-left: 50px;
+margin-top: 20px;
+}
+.setting-icon{
+margin-left: -30px;
+margin-top: 30px;
+background-color: white;
+border-radius: 50%;
+height: 40px;
+width: 40px;
+border: none;
+box-shadow: 2px 2px 2px 2px #d1d1d1;
+}
+.child{
+  box-shadow: 2px 2px 2px 2px #d1d1d1;
+  margin-bottom: 0;
+  margin-top: 0px;
+  width: 300px;
+  margin-left: 50px;
+  height: 400px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  padding: 10px;
+  margin-top: 50px;
+  float: right;
+}
+.icon-setting
+{
+  float: right;
+}
+.no-data{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}

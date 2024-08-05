@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 // Angular Import
 import { Component } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
@@ -28,7 +29,7 @@ export class NavRightComponent {
   friendId!: number;
 
   // constructor
-  constructor() {
+  constructor(private router:Router) {
     this.visibleUserList = false;
     this.chatMessage = false;
   }
@@ -37,5 +38,11 @@ export class NavRightComponent {
   onChatToggle(friendID: number) {
     this.friendId = friendID;
     this.chatMessage = !this.chatMessage;
+  }
+  logout(){
+sessionStorage.removeItem('token');
+sessionStorage.removeItem('role');
+this.router.navigate(['/login']);
+
   }
 }

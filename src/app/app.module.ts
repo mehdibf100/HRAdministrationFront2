@@ -1,3 +1,4 @@
+import { ProfileEmployeeComponent } from './profile-employee/profile-employee.component';
 // Angular Import
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,7 +30,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { DashboardClientComponent } from './dashboard-client/dashboard-client.component';
+import { BodyEmployeeDashbordComponent } from './body-employee-dashbord/body-employee-dashbord.component';
+import { RouterModule } from '@angular/router';
+import { HttpRequestInterceptor } from './helpers/http.interceptor';
 
 @NgModule({
   declarations: [
@@ -55,10 +60,12 @@ import { HttpClientModule } from '@angular/common/http';
     UnauthorizedComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
+    DashboardClientComponent,
+
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, BrowserAnimationsModule,
-    HttpClientModule,],
-  providers: [],
+    HttpClientModule, ProfileEmployeeComponent,BodyEmployeeDashbordComponent,RouterModule],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass:HttpRequestInterceptor , multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

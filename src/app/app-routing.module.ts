@@ -17,10 +17,13 @@ import { AuthGuard } from './guards/auth.guard';
 import { EmployeeGuard } from './guards/employee.guard';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { ProfileEmployeeComponent } from './profile-employee/profile-employee.component';
+import { BodyEmployeeDashbordComponent } from './body-employee-dashbord/body-employee-dashbord.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
-    path: '',
+    path: 'admin-dashboard',
     component: AdminComponent,canActivate: [AuthGuard , AdminGuard],
     children: [
       {
@@ -69,19 +72,20 @@ const routes: Routes = [
     ]
   },
   { path: 'login', component: LoginComponent },
-  { path: 'login', component: LoginComponent },
- // { path: 'adminb', component: DashboardAdminComponent   },
   { path: 'admin-hr-dashboard', component: DashboardHrComponent, canActivate: [AuthGuard , AdminHRGuard] },
-  { path: 'employee-dashboard', component: DashboardClientComponent, canActivate: [AuthGuard , EmployeeGuard] },
+  { path: 'employee-dashboard', component: DashboardClientComponent, canActivate: [AuthGuard , EmployeeGuard],
+    children: [
+      { path: 'profile', component: ProfileEmployeeComponent },
+      { path: 'home', component: BodyEmployeeDashbordComponent },
+      { path: '', redirectTo: 'home', pathMatch: 'full' } ]
+   },
   {path:'reset-password', component: ResetPasswordComponent},
   {path:'forgot-password', component: ForgotPasswordComponent},
   {path: 'unauthorized',component:UnauthorizedComponent},
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: false, scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
