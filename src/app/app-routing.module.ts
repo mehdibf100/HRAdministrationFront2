@@ -13,6 +13,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { EmployeeGuard } from './guards/employee.guard';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 const routes: Routes = [
   {
@@ -28,23 +29,11 @@ const routes: Routes = [
         path: 'analytics',
         loadComponent: () => import('./demo/dashboard/dash-analytics.component')
       },
-      {
-        path: 'component',
-        loadChildren: () => import('./demo/ui-element/ui-basic.module').then((m) => m.UiBasicModule)
-      },
-      {
-        path: 'forms',
-        loadComponent: () => import('./demo/forms & tables/form-elements/form-elements.component')
-      },
-      {
-        path: 'tables',
-        loadComponent: () => import('./demo/forms & tables/tbl-bootstrap/tbl-bootstrap.component')
-      }
+      { path: 'projects', component: ProjectsComponent },
     ]
   },
 
   { path: 'login', component: LoginComponent },
- // { path: 'adminb', component: DashboardAdminComponent   },
   { path: 'admin-hr-dashboard', component: DashboardHrComponent, canActivate: [AuthGuard , AdminHRGuard] },
   { path: 'employee-dashboard', component: DashboardClientComponent, canActivate: [AuthGuard , EmployeeGuard] },
   {path:'reset-password', component: ResetPasswordComponent},

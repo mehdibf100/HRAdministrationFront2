@@ -8,12 +8,10 @@ import { Location, LocationStrategy } from '@angular/common';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
-  // public props
   navCollapsed!: boolean;
   navCollapsedMob: boolean;
   windowWidth: number;
 
-  // constructor
   constructor(
     private location: Location,
     private locationStrategy: LocationStrategy
@@ -23,7 +21,6 @@ export class AdminComponent {
   }
 
   @HostListener('window:resize', ['$event'])
-  // eslint-disable-next-line
   onResize(event: any): void {
     this.windowWidth = event.target.innerWidth;
     if (this.windowWidth < 992) {
@@ -34,7 +31,6 @@ export class AdminComponent {
     }
   }
 
-  // public method
   navMobClick() {
     if (this.windowWidth < 992) {
       if (this.navCollapsedMob && !document.querySelector('app-navigation.pcoded-navbar')?.classList.contains('mob-open')) {

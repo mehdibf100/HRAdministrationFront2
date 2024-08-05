@@ -1,0 +1,27 @@
+<div class="projects-container">
+  <h2>Projects</h2>
+  
+  <table class="projects-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects">
+        <td>{{ project.id }}</td>
+        <td>{{ project.name }}</td>
+        <td>
+          <button class="btn btn-update">
+            <i class="feather icon-edit"></i>
+          </button>
+          <button class="btn btn-delete" (click)="deleteProject(project.id)">
+            <i class="feather icon-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

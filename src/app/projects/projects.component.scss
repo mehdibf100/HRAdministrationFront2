@@ -1,0 +1,55 @@
+.projects-container {
+  padding: 20px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.projects-table th, .projects-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.projects-table th {
+  background-color: #f4f4f4;
+}
+
+.projects-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px;
+  margin: 0 5px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn-update {
+  color: #4caf50; 
+}
+
+.btn-update:hover {
+  background-color: #e8f5e9;
+}
+
+.btn-delete {
+  color: #f44336; }
+
+.btn-delete:hover {
+  background-color: #ffebee;
+}
+
+.feather {
+  font-size: 18px;
+}

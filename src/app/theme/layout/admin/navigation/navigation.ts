@@ -20,8 +20,8 @@ export interface NavigationItem {
 
 export const NavigationItems: NavigationItem[] = [
   {
-    id: 'navigation',
-    title: 'Navigation',
+    id: 'Menu',
+    title: 'Menu',
     type: 'group',
     icon: 'icon-group',
     children: [
@@ -35,173 +35,110 @@ export const NavigationItems: NavigationItem[] = [
     ]
   },
   {
-    id: 'ui-component',
-    title: 'Ui Component',
+    id: 'entities',
+    title: 'Entities',
     type: 'group',
     icon: 'icon-group',
     children: [
       {
-        id: 'basic',
-        title: 'Component',
-        type: 'collapse',
-        icon: 'feather icon-box',
-        children: [
-          {
-            id: 'button',
-            title: 'Button',
-            type: 'item',
-            url: '/component/button'
-          },
-          {
-            id: 'badges',
-            title: 'Badges',
-            type: 'item',
-            url: '/component/badges'
-          },
-          {
-            id: 'breadcrumb-pagination',
-            title: 'Breadcrumb & Pagination',
-            type: 'item',
-            url: '/component/breadcrumb-paging'
-          },
-          {
-            id: 'collapse',
-            title: 'Collapse',
-            type: 'item',
-            url: '/component/collapse'
-          },
-          {
-            id: 'tabs-pills',
-            title: 'Tabs & Pills',
-            type: 'item',
-            url: '/component/tabs-pills'
-          },
-          {
-            id: 'typography',
-            title: 'Typography',
-            type: 'item',
-            url: '/component/typography'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 'Authentication',
-    title: 'Authentication',
-    type: 'group',
-    icon: 'icon-group',
-    children: [
-      {
-        id: 'signup',
-        title: 'Sign up',
+        id: 'users',
+        title: 'Users',
         type: 'item',
-        url: '/auth/signup',
-        icon: 'feather icon-at-sign',
-        target: true,
-        breadcrumbs: false
+        url: '/users',
+        icon: 'feather icon-users',
       },
       {
-        id: 'signin',
-        title: 'Sign in',
+        id: 'attendance',
+        title: 'Attendances',
         type: 'item',
-        url: '/auth/signin',
-        icon: 'feather icon-log-in',
-        target: true,
-        breadcrumbs: false
-      }
-    ]
-  },
-  {
-    id: 'chart',
-    title: 'Chart',
-    type: 'group',
-    icon: 'icon-group',
-    children: [
-      {
-        id: 'apexchart',
-        title: 'ApexChart',
-        type: 'item',
-        url: '/chart',
-        classes: 'nav-item',
-        icon: 'feather icon-pie-chart'
-      }
-    ]
-  },
-  {
-    id: 'forms & tables',
-    title: 'Forms & Tables',
-    type: 'group',
-    icon: 'icon-group',
-    children: [
-      {
-        id: 'forms',
-        title: 'Basic Forms',
-        type: 'item',
-        url: '/forms',
-        classes: 'nav-item',
-        icon: 'feather icon-file-text'
+        url: '/attendances',
+        icon: 'feather icon-user-check',
       },
       {
-        id: 'tables',
-        title: 'tables',
+        id: 'announcement',
+        title: 'Announcements',
         type: 'item',
-        url: '/tables',
-        classes: 'nav-item',
-        icon: 'feather icon-server'
-      }
+        url: '/announcement',
+        icon: 'feather icon-info',
+      },
+      {
+        id: 'complaint',
+        title: 'Complaints',
+        type: 'item',
+        url: '/complaint',
+        icon: 'feather icon-thumbs-down',
+      },
+      {
+        id: 'holidays',
+        title: 'Holidays',
+        type: 'item',
+        url: '/holidays',
+        icon: 'feather icon-calendar',
+      },
+      {
+        id: 'projects',
+        title: 'Projects',
+        type: 'item',
+        url: '/projects',
+        icon: 'feather icon-package',
+      },
+      {
+        id: 'tasks',
+        title: 'Tasks',
+        type: 'item',
+        url: '/tasks',
+        icon: 'feather icon-clipboard',
+      },
+      {
+        id: 'salaryhistory',
+        title: 'Salary History',
+        type: 'item',
+        url: '/salaryhistory',
+        icon: 'feather icon-dollar-sign',
+      },
+      {
+        id: 'leaverequests',
+        title: 'Leave Requests',
+        type: 'item',
+        url: '/leaverequests',
+        icon: 'feather icon-briefcase',
+      },
+      {
+        id: 'files',
+        title: 'Files',
+        type: 'item',
+        url: '/files',
+        icon: 'feather icon-file',
+      },
     ]
   },
   {
-    id: 'other',
-    title: 'Other',
+    id: 'settings',
+    title: 'Settings',
     type: 'group',
     icon: 'icon-group',
     children: [
       {
-        id: 'sample-page',
-        title: 'Sample Page',
+        id: 'profile',
+        title: 'Profile',
         type: 'item',
-        url: '/sample-page',
-        classes: 'nav-item',
-        icon: 'feather icon-sidebar'
+        url: '/profile',
+        icon: 'feather icon-user',
       },
       {
-        id: 'menu-level',
-        title: 'Menu Levels',
-        type: 'collapse',
-        icon: 'feather icon-menu',
-        children: [
-          {
-            id: 'menu-level-2.1',
-            title: 'Menu Level 2.1',
-            type: 'item',
-            url: 'javascript:',
-            external: true
-          },
-          {
-            id: 'menu-level-2.2',
-            title: 'Menu Level 2.2',
-            type: 'collapse',
-            children: [
-              {
-                id: 'menu-level-2.2.1',
-                title: 'Menu Level 2.2.1',
-                type: 'item',
-                url: 'javascript:',
-                external: true
-              },
-              {
-                id: 'menu-level-2.2.2',
-                title: 'Menu Level 2.2.2',
-                type: 'item',
-                url: 'javascript:',
-                external: true
-              }
-            ]
-          }
-        ]
-      }
+        id: 'settings',
+        title: 'Settings',
+        type: 'item',
+        url: '/settings',
+        icon: 'feather icon-settings',
+      },
+      {
+        id: 'logout',
+        title: 'Logout',
+        type: 'item',
+        url: '/logout',
+        icon: 'feather icon-log-out',
+      },
     ]
-  }
+  },
 ];

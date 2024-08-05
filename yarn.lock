@@ -5049,6 +5049,11 @@ make-fetch-happen@^13.0.0, make-fetch-happen@^13.0.1:
     promise-retry "^2.0.1"
     ssri "^10.0.0"
 
+material-symbols@^0.21.3:
+  version "0.21.3"
+  resolved "https://registry.npmjs.org/material-symbols/-/material-symbols-0.21.3.tgz"
+  integrity sha512-MW1pD2gcbmUKokgJaD2TZ9lYNUQDUdLdflnBNWbDtWDpAmbk86/MH7QmB/QWTFWA20Z5vxbNIuBq/+Xj+WYY6w==
+
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz"

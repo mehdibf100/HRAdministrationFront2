@@ -24,12 +24,15 @@ import { LoginComponent } from './login/login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProjectsComponent } from './projects/projects.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     NavBarComponent,
+    ProjectsComponent,
     NavigationComponent,
     NavLeftComponent,
     NavSearchComponent,
