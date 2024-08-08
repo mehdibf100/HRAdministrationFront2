@@ -3,8 +3,29 @@
     <span class="navContent">Employee Management</span>
   </nav>
   <nav class="navBarMenu">
-   <div class="box"><div><button [routerLink]="['/home']"  routerLinkActive="active" ariaCurrentWhenActive="page" class="btn1"><img src="https://img.icons8.com/?size=100&id=jPDM9Pv61iP5&format=png&color=000000" alt=""></button></div><div class="line"></div><button class="back" type="button" (click)="goBack()"><</button><div class="bt-info"><a [routerLink]="['/profile']" routerLinkActive="activebutton"ariaCurrentWhenActive="page">My info</a></div><div class="bt-info"><a href="" >Directory</a></div><div class="bt-info"><a href="" >Buzz</a></div><div class="bt-info"><a href="" >Assets</a></div></div>
-    <button class="btn-logout"  (click)="logout()"><img src="https://static-00.iconduck.com/assets.00/logout-icon-2048x1708-5s1s9mb0.png" alt=""> Log Out</button>
+    <div class="box">
+      <div>
+        <button [routerLink]="['/home']" (click)="setActive('home')" [class.activebutton]="activeButton === 'home'" class="btn1">
+          <img src="https://img.icons8.com/?size=100&id=jPDM9Pv61iP5&format=png&color=000000" alt="">
+        </button>
+      </div>
+      <div class="line"></div>
+      <button class="back" type="button" (click)="goBack()"><</button>
+      <div class="bt-info">
+        <a [routerLink]="['/employee-dashboard/profile']" (click)="setActive('profile')" [class.activebutton]="activeButton === 'profile'" >My info</a>
+      </div>
+      <div class="bt-info">
+        <a [routerLink]="['/directory']" (click)="setActive('directory')" [class.activebutton]="activeButton === 'directory'" >Directory</a>
+      </div>
+      <div class="bt-info">
+        <a [routerLink]="['/buzz']" (click)="setActive('buzz')" [class.activebutton]="activeButton === 'buzz'" >Buzz</a>
+      </div>
+      <div class="bt-info">
+        <a [routerLink]="['/assets']" (click)="setActive('assets')" [class.activebutton]="activeButton === 'assets'" >Assets</a>
+      </div>
+    </div>
+    
+            <button class="btn-logout"  (click)="logout()"><img src="https://static-00.iconduck.com/assets.00/logout-icon-2048x1708-5s1s9mb0.png" alt=""> Log Out</button>
     <div class="dropdown">
       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 

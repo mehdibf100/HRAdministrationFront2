@@ -1,4 +1,3 @@
-import { data } from './../fack-db/series-data';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
@@ -14,6 +13,7 @@ export class DashboardClientComponent implements OnInit{
   constructor(private  authService: AuthService,private router: Router,private location: Location) {
   }
   user: any;
+  activeButton: string = '';
 
   ngOnInit(): void {
     this.authService.GetuserLogin().subscribe(
@@ -22,10 +22,14 @@ export class DashboardClientComponent implements OnInit{
         this.user = data;
       },
       err => {
-        console.error(err); // Affiche l'erreur dans la console
+        console.error(err);
       }
     );
   }
+  setActive(button: string): void {
+    this.activeButton = button;
+  }
+
   goBack(): void {
     this.location.back();
   }
