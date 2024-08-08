@@ -36,7 +36,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
-
+import { AddHolidayComponent } from './dashboard-components/holidays/add-holiday/add-holiday.component';
+import { UpdateHolidayComponent } from './dashboard-components/holidays/update-holiday/update-holiday.component';
+import { HolidaysComponent } from './dashboard-components/holidays/holidays.component';
+import { TasksComponent } from './dashboard-components/tasks/tasks.component';
+import { AddTaskComponent } from './dashboard-components/tasks/add-task/add-task.component';
+import { UpdateTaskComponent } from './dashboard-components/tasks/update-task/update-task.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +66,12 @@ import { MatIconModule } from '@angular/material/icon';
     UsersComponent,
     AddProjectComponent,
     UpdateProjectComponent,
+    HolidaysComponent,
+    AddHolidayComponent,
+    UpdateHolidayComponent,
+    TasksComponent,
+    AddTaskComponent,
+    UpdateTaskComponent,
 
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, BrowserAnimationsModule,

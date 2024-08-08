@@ -15,4 +15,5 @@ export interface User {
   job?: string; 
   datejoined?: string; 
   resetToken?: string; 
+  tasks: string[];
 }

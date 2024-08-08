@@ -27,6 +27,7 @@
             <th>Email</th>
             <th>Job</th>
             <th>Salary</th>
+            <th>Date Joined</th>
             <th>Role</th>
             <th>Actions</th>
           </tr>
@@ -39,6 +40,7 @@
             <td data-label="Email">{{ user.email }}</td>
             <td data-label="Job">{{ user.job }}</td>
             <td data-label="Salary">{{ user.baseSalary }}</td>
+            <td data-label="Date Joined">{{ user.datejoined }}</td>
             <td data-label="Role">{{ user.role }}</td>
             <td data-label="Actions" class="actions-column">
               <button class="btn btn-update" (click)="toggleUpdateUser(user.id)">

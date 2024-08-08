@@ -20,7 +20,10 @@ export class AddProjectComponent {
 
   onSubmit(): void {
     if (this.projectName) {
-      const newProject: Project = { id: 0, name: this.projectName }; 
+      const newProject: Project = {
+        id: 0, name: this.projectName,
+        tasks: []
+      }; 
       this.projectService.createProject(newProject).subscribe(
         (project) => {
           console.log('Project created:', project);

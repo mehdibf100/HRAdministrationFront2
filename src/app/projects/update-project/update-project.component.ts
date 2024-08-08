@@ -34,7 +34,10 @@ export class UpdateProjectComponent implements OnInit {
 
   onSubmit(): void {
     if (this.projectId !== undefined && this.projectName) {
-      const updatedProject: Project = { id: this.projectId, name: this.projectName };
+      const updatedProject: Project = {
+        id: this.projectId, name: this.projectName,
+        tasks: []
+      };
       this.projectService.updateProject(this.projectId, updatedProject).subscribe(
         (project) => {
           console.log('Project updated:', project);

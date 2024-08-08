@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { UsersService } from '../../../services/users/users.service';
 import { Router } from '@angular/router';
 import { User, Roles } from 'src/app/models/user';
+import { UsersService } from '../../../services/users/users.service';
 
 @Component({
   selector: 'app-add-user',
@@ -11,37 +11,38 @@ import { User, Roles } from 'src/app/models/user';
 export class AddUserComponent {
   @Output() closeAddUser = new EventEmitter<void>();
 
-user: User = {
-  email: '',
-  password: '',
-  role: Roles.ROLE_EMPLOYEE,
-  firstname: '',
-  lastname: '',
-  job: '',
-  datejoined: '', 
-  baseSalary: 0,
-};
+  user: User = {
+    email: '',
+    password: '',
+    role: Roles.ROLE_EMPLOYEE,
+    firstname: '',
+    lastname: '',
+    job: '',
+    datejoined: '',
+    baseSalary: 0,
+    tasks: []
+  };
 
   roles = Object.values(Roles);
 
   constructor(private userService: UsersService, private router: Router) {}
 
   onSubmit(): void {
-    const userPayload = {
+    const userPayload: User = {
       email: this.user.email,
-      role: this.user.role,
       password: this.user.password,
-      user: {
-        firstname: this.user.firstname,
-        lastname: this.user.lastname,
-        job: this.user.job,
-        datejoined: this.user.datejoined,
-        baseSalary: this.user.baseSalary,
-      }
+      role: this.user.role,
+      baseSalary: this.user.baseSalary,
+      firstname: this.user.firstname,
+      lastname: this.user.lastname,
+      job: this.user.job,
+      datejoined: this.user.datejoined,
+      resetToken: this.user.resetToken,
+      tasks: this.user.tasks
     };
-  
+
     console.log('Submitting user:', userPayload); 
-  
+
     this.userService.addUser(userPayload).subscribe(
       (response) => {
         console.log('User added successfully:', response);
@@ -52,7 +53,7 @@ user: User = {
       }
     );
   }
-    
+
   onCancel(): void {
     this.closeAddUser.emit();
   }

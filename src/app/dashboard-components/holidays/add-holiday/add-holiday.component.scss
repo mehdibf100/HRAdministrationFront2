@@ -1,4 +1,4 @@
-.update-user-container {
+.add-holiday-container {
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
@@ -34,19 +34,17 @@
       .date-picker-container {
         position: relative;
   
-        input {
-          width: calc(100% - 40px); /* Adjust to make space for the icon */
-          padding-right: 40px; /* Add padding to the right */
-        }
+ 
   
         .datepicker-icon {
           position: absolute;
           top: 50%;
-          right: 10px; /* Adjust to position the icon inside the input */
+          right: 10px;
           transform: translateY(-50%);
+          pointer-events: none; 
         }
       }
-  
+      
       .error-message {
         color: red;
         font-size: 0.875rem;

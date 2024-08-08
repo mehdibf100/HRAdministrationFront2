@@ -86,7 +86,7 @@ export const NavigationItems: NavigationItem[] = [
         id: 'tasks',
         title: 'Tasks',
         type: 'item',
-        url: '/tasks',
+        url: 'tasks',
         icon: 'feather icon-clipboard',
       },
       {

@@ -33,7 +33,7 @@ export class UsersService {
     return this.http.post<User>(`${this.apiUrl}/signup`, user);
   }
 
-  updateUser(user: User): Observable<User> {
+  updateUser(userId: number, user: User): Observable<User> {
     return this.http.put<User>(`${this.apiUrl}/user/update-user/`, user);
   }
 
