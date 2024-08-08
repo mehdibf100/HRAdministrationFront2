@@ -1,4 +1,3 @@
-// src/app/projects/projects.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/projects/projects.service';
 import { Project } from '../models/project';
@@ -9,6 +8,9 @@ import { Project } from '../models/project';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
+  showAddProject = false;
+  showUpdateProject = false;
+  projectIdToUpdate: number | undefined;
   projects: Project[] = [];
 
   constructor(private projectsService: ProjectService) { }
@@ -20,7 +22,7 @@ export class ProjectsComponent implements OnInit {
   loadProjects(): void {
     this.projectsService.getProjects().subscribe(
       (data) => {
-        console.log('Projects fetched:', data); 
+        console.log('Projects fetched:', data);
         this.projects = data;
       },
       (error) => {
@@ -28,23 +30,47 @@ export class ProjectsComponent implements OnInit {
       }
     );
   }
-  updateProject(id: number | undefined): void {
+
+  deleteProject(id?: number): void {
     if (id !== undefined) {
-      console.log('project id:', id);
+      this.projectsService.deleteProject(id).subscribe(
+        () => {
+          console.log('Project deleted:', id);
+          this.loadProjects();
+        },
+        (error) => {
+          console.error('Error deleting project', error);
+        }
+      );
     } else {
       console.error('Project ID is undefined');
     }
   }
-  deleteProject(id?: number): void {
-    this.projectsService.deleteProject(id).subscribe(
-      () => {
-        console.log('Project deleted:', id);
-        this.loadProjects();
-      },
-      (error) => {
-        console.error('Error deleting project', error);
-      }
-    );
+
+  toggleAddProject(): void {
+    this.showAddProject = !this.showAddProject;
+    if (this.showAddProject) {
+      this.showUpdateProject = false;
+      this.projectIdToUpdate = undefined;
+    }
   }
 
+  onAddProjectClose(): void {
+    this.showAddProject = false;
+    this.loadProjects();
+  }
+
+  toggleUpdateProject(id?: number): void {
+    this.projectIdToUpdate = id;
+    this.showUpdateProject = !this.showUpdateProject;
+    if (this.showUpdateProject) {
+      this.showAddProject = false;
+    }
+  }
+
+  onUpdateProjectClose(): void {
+    this.showUpdateProject = false;
+    this.projectIdToUpdate = undefined;
+    this.loadProjects();
+  }
 }

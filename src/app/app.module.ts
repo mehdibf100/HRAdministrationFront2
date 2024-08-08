@@ -16,7 +16,6 @@ import { NavCollapseComponent } from './theme/layout/admin/navigation/nav-conten
 import { NavGroupComponent } from './theme/layout/admin/navigation/nav-content/nav-group/nav-group.component';
 import { NavItemComponent } from './theme/layout/admin/navigation/nav-content/nav-item/nav-item.component';
 import { SharedModule } from './theme/shared/shared.module';
-import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { DashboardHrComponent } from './dashboard-hr/dashboard-hr.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LoginComponent } from './login/login.component';
@@ -28,6 +27,15 @@ import { DashboardClientComponent } from './dashboard-client/dashboard-client.co
 import { BodyEmployeeDashbordComponent } from './body-employee-dashbord/body-employee-dashbord.component';
 import { RouterModule } from '@angular/router';
 import { HttpRequestInterceptor } from './helpers/http.interceptor';
+import { AddProjectComponent } from './projects/add-project/add-project.component';
+import { UpdateProjectComponent } from './projects/update-project/update-project.component';
+import { AddUserComponent } from './dashboard-components/users/add-user/add-user.component';
+import { UpdateUserComponent } from './dashboard-components/users/update-user/update-user.component';
+import { UsersComponent } from './dashboard-components/users/users.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -43,16 +51,20 @@ import { HttpRequestInterceptor } from './helpers/http.interceptor';
     NavCollapseComponent,
     NavGroupComponent,
     LoginComponent,
-    DashboardAdminComponent,
-    DashboardHrComponent,
+   DashboardHrComponent,
     UnauthorizedComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
     DashboardClientComponent,
+    AddUserComponent,
+    UpdateUserComponent,
+    UsersComponent,
+    AddProjectComponent,
+    UpdateProjectComponent,
 
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, BrowserAnimationsModule,
-    HttpClientModule, ProfileEmployeeComponent,BodyEmployeeDashbordComponent,RouterModule],
+    HttpClientModule, ProfileEmployeeComponent,BodyEmployeeDashbordComponent,RouterModule,MatInputModule,MatDatepickerModule,MatNativeDateModule ,MatIconModule],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass:HttpRequestInterceptor , multi: true },],
   bootstrap: [AppComponent]
 })
