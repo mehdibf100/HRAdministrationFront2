@@ -1,0 +1,73 @@
+<app-nav-bar-menu></app-nav-bar-menu>
+<div class="cont">
+  <div class="timeSheet">
+    <p class="title">Weekly timeSheet </p>
+    <p class="date" >This week, {{ weekDays.monday }} - {{ weekDays.friday }} 2024 <input type="date" [(ngModel)]="selectedDate" (change)="onDateChange($event)"  [ngModelOptions]="{standalone: true}"/> <i (click)="Minus()" class="fa-solid fa-arrow-left"></i> <i (click)="Plus()" class="fa-solid fa-arrow-right"></i><span><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#36546c"><path d="M360-840v-80h240v80H360Zm80 440h80v-240h-80v240Zm40 320q-74 0-139.5-28.5T226-186q-49-49-77.5-114.5T120-440q0-74 28.5-139.5T226-694q49-49 114.5-77.5T480-800q62 0 119 20t107 58l56-56 56 56-56 56q38 50 58 107t20 119q0 74-28.5 139.5T734-186q-49 49-114.5 77.5T480-80Zm0-80q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82Zm0-280Z"/></svg> Switch to timer </span></p>
+<hr>
+<div class="table">
+<table>
+  <thead>
+    <tr >
+      <th colspan="5">PROJECT</th>
+      <th colspan="3">TASK</th>
+      <th colspan="3"><input type="text" [value]="weekDays.monday" placeholder="Monday"></th>
+      <th colspan="3"><input type="text" [value]="weekDays.tuesday" placeholder="Tuesday"></th>
+      <th colspan="3"><input type="text" [value]="weekDays.wednesday" placeholder="Wednesday"></th>
+      <th colspan="3"><input type="text" [value]="weekDays.thursday" placeholder="Thursday"></th>
+      <th colspan="3"><input type="text" [value]="weekDays.friday" placeholder="Friday"></th>
+      <th>Total</th>
+      <th colspan="3" class="del"></th>
+  </tr>
+</thead>
+<tbody id="tr1">
+  <tr *ngFor="let task of tasks">
+      <td colspan="5"><select name="" id=""><option value="">Select Project</option> <option *ngFor="let item of project" value="{{ item.name }}">{{ item.name }}</option></select></td>
+      <td colspan="3"><select name="" id=""><option value="">Select Task</option></select></td>
+      <td colspan="3"><input type="text"  [value]="getTimeForDay(task, 'monday')"></td>
+      <td colspan="3"><input type="text" [value]="getTimeForDay(task, 'tuesday')" ></td>
+      <td colspan="3"><input type="text" [value]="getTimeForDay(task, 'wednesday')"></td>
+      <td colspan="3"><input type="text"[value]="getTimeForDay(task, 'thursday')" ></td>
+      <td colspan="3"><input type="text" [value]="getTimeForDay(task, 'friday')"></td>
+      <td class="total1"><input type="text" value="00:00" disabled></td>
+      <td colspan="3" id="del" class="del"><button class="btn">
+        <svg viewBox="0 0 15 17.5" height="17.5" width="15" xmlns="http://www.w3.org/2000/svg" class="icon">
+        <path transform="translate(-2.5 -1.25)" d="M15,18.75H5A1.251,1.251,0,0,1,3.75,17.5V5H2.5V3.75h15V5H16.25V17.5A1.251,1.251,0,0,1,15,18.75ZM5,5V17.5H15V5Zm7.5,10H11.25V7.5H12.5V15ZM8.75,15H7.5V7.5H8.75V15ZM12.5,2.5h-5V1.25h5V2.5Z" id="Fill"></path>
+      </svg>
+      </button>
+      </td>
+  </tr>
+  </tbody>
+  <tfoot>
+    <tr class="total">
+        <td colspan="5"></td>
+        <td colspan="3"><strong>Total:</strong></td>
+        <td colspan="3"><input type="text" value="00:00" disabled></td>
+        <td colspan="3"><input type="text" value="00:00" disabled></td>
+        <td colspan="3"><input type="text" value="00:00" disabled></td>
+        <td colspan="3"><input type="text" value="00:00" disabled></td>
+        <td colspan="3"><input type="text" value="00:00" disabled></td>
+        <td><input type="text" value="00:00" disabled></td>
+    </tr>
+</tfoot>
+</table>
+<p><button class="btn-add" (click)="Add()"><i class="fa-solid fa-plus fa-rotate-by" style="color: #7da8c9; --fa-rotate-angle: 1deg;"></i>Add timeSheet row</button></p>
+</div>
+<!-- <div class="input-container">
+  <label for="select-day">Select a day: </label>
+  <input type="date" id="select-day" [(ngModel)]="selectedDate" (change)="onDateChange($event)">
+</div> -->
+
+<!-- <table id="week-table">
+  <tr>
+      <td><input type="text" [value]="weekDays.monday" placeholder="Monday"></td>
+      <td><input type="text" [value]="weekDays.tuesday" placeholder="Tuesday"></td>
+      <td><input type="text" [value]="weekDays.wednesday" placeholder="Wednesday"></td>
+      <td><input type="text" [value]="weekDays.thursday" placeholder="Thursday"></td>
+      <td><input type="text" [value]="weekDays.friday" placeholder="Friday"></td>
+      <td><input type="text" [value]="weekDays.saturday" placeholder="Saturday"></td>
+      <td><input type="text" [value]="weekDays.sunday" placeholder="Sunday"></td>
+  </tr>
+</table> -->
+
+  </div>
+</div>
