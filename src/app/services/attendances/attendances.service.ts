@@ -55,4 +55,10 @@ export class AttendancesService {
   updateAttendance(attendanceId:number, attendance: Attendance):Observable<Attendance>{
     return this.http.put<Attendance>(`${this.apiUrl}/${attendanceId}`, attendance);
 }
+testAttendanceToday(){
+  return this.http.get(this.apiUrl+"/test");
+}
+getAttendanceByDate(){
+  return this.http.post(this.apiUrl+"/getByDate",{});
+}
 }

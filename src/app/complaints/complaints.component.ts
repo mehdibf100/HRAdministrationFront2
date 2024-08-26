@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ComplaintsService } from '../services/complaints.service';
 import { Router } from '@angular/router';
 
@@ -7,8 +7,11 @@ import { Router } from '@angular/router';
   templateUrl: './complaints.component.html',
   styleUrl: './complaints.component.scss'
 })
-export class ComplaintsComponent {
+export class ComplaintsComponent implements OnInit{
   constructor(private complaintsService: ComplaintsService,private router:Router) {}
+  ngOnInit(): void {
+    localStorage.setItem('title','Complaints');
+  }
   complaints={
     title:'',
     description:''

@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(loginForm: NgForm): void {
-    if (loginForm.valid) {
+    if (!loginForm.valid) {
       const { email, password } = this.user;
 
       this.authService.login(email, password).subscribe({

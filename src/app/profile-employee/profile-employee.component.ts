@@ -12,6 +12,7 @@ export class ProfileEmployeeComponent implements OnInit{
   }
   user:any
   ngOnInit(): void {
+    localStorage.setItem('title','Profile');
     this.authService.GetuserLogin().subscribe(
       data => {
         console.log(data);

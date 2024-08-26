@@ -16,4 +16,10 @@ export class TasksService {
       date
     }});
   }
+  AddTasks(tasks:any):Observable<any>{
+    return this.http.post(this.url, tasks);
+  }
+  DeleteTask(id:any):Observable<any>{
+    return this.http.delete(`${this.url}/${id}`);
+  }
 }

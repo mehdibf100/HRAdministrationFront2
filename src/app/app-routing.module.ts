@@ -71,7 +71,8 @@ const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
-  { path: 'side', component: SidebarComponent },
+  { path: '**', component:UnauthorizedComponent },
+
 ];
 
 @NgModule({

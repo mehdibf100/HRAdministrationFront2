@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LeaveService } from '../services/leave.service';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './apply-leave.component.html',
   styleUrl: './apply-leave.component.scss'
 })
-export class ApplyLeaveComponent {
+export class ApplyLeaveComponent  implements OnInit{
  startDate?: Date | string;
  endDate?: Date | string;
  period?: number;
@@ -15,6 +15,9 @@ export class ApplyLeaveComponent {
  reason: string = '';
  leave: any = {};
  constructor(private leaveService: LeaveService,private router:Router) {}
+  ngOnInit(): void {
+    localStorage.setItem('title','Apply Leave');
+  }
 
   calculDate() {
     if (this.startDate && this.period !== undefined) {

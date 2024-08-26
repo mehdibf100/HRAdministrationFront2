@@ -14,8 +14,9 @@ export class DashboardClientComponent implements OnInit{
   }
   user: any;
   activeButton: string = '';
-
+  title:any;
   ngOnInit(): void {
+    this.title=localStorage.getItem('title');
     this.authService.GetuserLogin().subscribe(
       data => {
         console.log(data);

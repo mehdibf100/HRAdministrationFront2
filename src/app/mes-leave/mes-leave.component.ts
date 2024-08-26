@@ -12,6 +12,7 @@ export class MesLeaveComponent implements OnInit{
   leaves:any
   //id=sessionStorage.getItem('id');
   ngOnInit():void{
+    localStorage.setItem('title','My Leave');
     this.leaveService.getLeaves().subscribe(
       (res)=>{
         console.log(res+"yjtdytft")

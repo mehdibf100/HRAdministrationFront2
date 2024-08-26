@@ -11,8 +11,9 @@ export class BodyEmployeeDashbordComponent implements OnInit{
   constructor(private  authService: AuthService,private router: Router) {
   }
   user: any;
-
   ngOnInit(): void {
+    localStorage.setItem('title','Employee Management')
+
     this.authService.GetuserLogin().subscribe(
       data => {
         console.log(data);
